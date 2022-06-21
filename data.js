@@ -44,8 +44,8 @@ export const projects = [
   export const skills = [
       "React.js (4 years)",
       "Next.js (2 years)",
-      "React Native (3 years)",
-      "Node.js (3 years)",
+      "React Native (4 years)",
+      "Node.js (2 years)",
       "GraphQL (3 years)",
       "PostgreSQL (3 years)"
   ]

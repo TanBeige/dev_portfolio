@@ -8,8 +8,33 @@ import Navbar from "../components/Navbar";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Tools from "../components/Tools";
+import { FaGithubSquare, FaLinkedin, FaMedium } from "react-icons/fa";
 
 const adjectives = ["Entrepreneur", "Full-Stack"];
+
+const mainLinks = [
+  {
+    name: "Medium",
+    link: "https://medium.com/@tanarindev",
+    icon: (
+      <FaMedium className="w-8 h-8 transition-colors hover:text-gray-200" />
+    ),
+  },
+  {
+    name: "GitHub",
+    link: "https://github.com/tanBeige",
+    icon: (
+      <FaGithubSquare className="w-8 h-8 transition-colors hover:text-violet-600" />
+    ),
+  },
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/tanarin12",
+    icon: (
+      <FaLinkedin className="w-8 h-8 transition-colors hover:text-sky-700" />
+    ),
+  },
+];
 
 export default function App() {
   return (
@@ -60,21 +85,23 @@ export default function App() {
             <h2 className="text-3xl text-gray-200 font-bold">
               Software Developer
             </h2>
-            {/* <div className="flex flex-row space-x-1 mt-1">
-              {adjectives.map((adj, index) => {
+            <div className="flex flex-row space-x-2 mt-2">
+              {mainLinks.map((lnk, index) => {
                 return (
                   <motion.p
-                    key={`key-adj-${adj}`}
-                    className="text-gray-400 text-sm"
+                    key={`key-adj-${lnk.name}`}
+                    className="text-gray-400 text-sm cursor-pointer"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 1.0 + index * 0.1 }}
+                    transition={{ duration: 0.3, delay: 1 + index * 0.1 }}
                   >
-                    {index === adjectives.length - 1 ? adj : `${adj} -`}
+                    <a href={lnk.link} target="_blank" rel="noreferrer">
+                      {lnk.icon}
+                    </a>
                   </motion.p>
                 );
               })}
-            </div> */}
+            </div>
             <div className="mt-4">
               <Tools delay={1.2} />
             </div>

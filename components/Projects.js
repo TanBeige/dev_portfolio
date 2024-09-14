@@ -1,44 +1,142 @@
 import { CodeIcon } from "@heroicons/react/solid";
 import React from "react";
-import { projects } from "../data";
+// import { projects } from "../data";
+import { motion } from "framer-motion";
+import moment from "moment";
 
-export default function Projects() {
+const projects = [
+  {
+    name: "SkyHarbor",
+    type: "project",
+    role: "Founder",
+    image: "assets/images/SHLogoFinalTS.png",
+    startDate: new Date("2023-02-01"),
+    endDate: undefined,
+    description: "A decentralized marketplace for NFTs",
+    link: "https://skyharbor.io",
+  },
+  {
+    name: "Collectibles AI",
+    type: "project",
+    role: "Co-Founder and Lead Developer",
+    image: "assets/images/collectibleslogowhite.png",
+    startDate: new Date("2024-01-02"),
+    endDate: undefined,
+    description: "AI-powered collectibles identification and pricing",
+    link: "https://collectiblesai.io",
+  },
+  {
+    name: "KoraLabs",
+    type: "work",
+    role: "Frontend Engineer",
+    image: "assets/images/adahandle.jpeg",
+    startDate: new Date("2023-07-15"),
+    endDate: undefined,
+    description: "Blockchain infrastructure and tools for ADA Handles",
+    link: "https://koralabs.io",
+  },
+  {
+    name: "GRIFFIN Solutions Group",
+    type: "work",
+    role: "Software Engineer",
+    image: "assets/images/griffin.jpeg",
+    startDate: new Date("2022-12-18"),
+    endDate: new Date("2023-07-02"),
+    description: "Custom software solutions for businesses",
+    link: "https://griffinsolutionsgroup.com",
+  },
+  {
+    name: "Skedge",
+    type: "project",
+    role: "Co-Founder",
+    image: "assets/images/skedgelogo.png",
+    startDate: new Date("2019-7-01"),
+    endDate: new Date("2020-10-02"),
+    description: "iOS, Android, and web application for finding local events and deals",
+    link: "https://github.com/TanBeige/skedge-deals",
+  },
+  {
+    name: "Northrop Grumman",
+    type: "work",
+    role: "Software Engineer Intern",
+    image: "assets/images/nglogo.jpeg",
+    startDate: new Date("2019-5-02"),
+    endDate: new Date("2020-07-02"),
+    description: "Acquired Secret Clearance to work on projects containing sensitive information",
+    link: "https://www.northropgrumman.com/",
+  },
+];
+
+export default function Projects({delay}) {
   return (
-    <section id="projects" className="text-gray-400 bg-gray-900 body-font">
-      <div className="container px-5 py-10 mx-auto text-center lg:px-40">
-        <div className="flex flex-col w-full mb-20">
-          <CodeIcon className="mx-auto inline-block w-10 mb-4" />
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-            Websites/Applications I{"'"}ve built
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            With experience in both front and back end, I{"'"}ve used my skills to build startups and new projects that are meant to grow to many users. Check some of them out below!
+    <section id="projects">
+      <div className="">
+        <motion.div
+          className=""
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: delay }}
+        >
+          <p className="mb-3 text-xl text-gray-300 font-bold">
+            Work {"&"} Projects
           </p>
-        </div>
-        <div className="flex flex-wrap -m-4">
-          {projects.map((project) => (
-            <a
-              href={project.link}
-              key={project.image}
-              className="sm:w-1/2 w-100 p-4">
-              <div className="flex relative">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  src={project.image}
-                />
-                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
-                  <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
-                    {project.subtitle}
-                  </h2>
-                  <h1 className="title-font text-lg font-medium text-white mb-3">
-                    {project.title}
-                  </h1>
-                  <p className="leading-relaxed">{project.description}</p>
-                </div>
-              </div>
-            </a>
-          ))}
+        </motion.div>
+        <div className="flex flex-col space-y-4">
+          {projects
+            .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
+            .map((proj, index) => {
+              return (
+                <motion.div
+                  key={`${proj.name}-project`}
+                  className="hover:bg-white/10 rounded-lg transition-colors"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: (delay + 0.2) + index * 0.14 }}
+                >
+                  <a href={proj.link} target="_blank" rel="noreferrer" >
+                    <div className="flex flex-row space-x-2">
+                      <div className="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+                        <img
+                          src={proj.image}
+                          className="object-cover h-full w-full"
+                        />
+                      </div>
+                      <div className="flex-grow">
+
+                        {/* NAME */}
+                        <div className="flex flex-col space-y-[1px]">
+                          <p className="text-gray-200 text-base font-semibold -mb-0.5">
+                            {proj.role}
+                          </p>
+
+                          <p className="text-gray-200 text-xs">{proj.name}</p>
+
+                          {/* DATES */}
+                          <div className="flex flex-row space-x-1 text-xs text-gray-400">
+                            <p className="">
+                              {moment(proj.startDate).format("MMM YYYY")}
+                            </p>
+                            <p> - </p>
+                            <p className="">
+                              {proj.endDate
+                                ? moment(proj.endDate).format("MMM YYYY")
+                                : "Present"}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* DESCRIPTION */}
+                        <div className="mt-1">
+                          <p className="text-sm text-gray-200">
+                            {proj.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </motion.div>
+              );
+            })}
         </div>
       </div>
     </section>

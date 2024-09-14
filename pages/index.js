@@ -9,6 +9,7 @@ import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Tools from "../components/Tools";
 import { FaGithubSquare, FaLinkedin, FaMedium } from "react-icons/fa";
+import { DocumentDownloadIcon } from "@heroicons/react/solid";
 
 const adjectives = ["Entrepreneur", "Full-Stack"];
 
@@ -85,7 +86,7 @@ export default function App() {
             <h2 className="text-3xl text-gray-200 font-bold">
               Software Developer
             </h2>
-            <div className="flex flex-row space-x-2 mt-2">
+            <div className="flex flex-row space-x-2 mt-2 items-center">
               {mainLinks.map((lnk, index) => {
                 return (
                   <motion.p
@@ -101,6 +102,19 @@ export default function App() {
                   </motion.p>
                 );
               })}
+              <motion.a
+                target="_blank"
+                rel="noreferrer"
+                href="/assets/Tan_Arin_Developer_Resume_2024.pdf"
+                className="items-center inline-flex text-sm h-[29px] transition-all text-white bg-green-800 border-0 py-0 px-4 focus:outline-none hover:bg-green-600 rounded-sm"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 1 + 4 * 0.1 }}
+
+              >
+                Resume
+                <DocumentDownloadIcon className="w-4 h-4 ml-1" />
+              </motion.a>
             </div>
             <div className="mt-4">
               <Tools delay={1.2} />

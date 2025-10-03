@@ -21,7 +21,7 @@ const skillCategories = [
   },
   {
     category: "DevOps & Tooling",
-    skills: ["AWS", "DigitalOcean", "CI/CD", "GitHub Actions", "LaunchDarkly"],
+    skills: ["AWS", "DigitalOcean", "CI/CD", "GitHub Actions"],
     color: "purple",
   },
 ];

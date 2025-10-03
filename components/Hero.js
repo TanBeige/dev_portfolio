@@ -71,7 +71,7 @@ export default function Hero({ delay = 0 }) {
             </p>
             <ul className="mt-6 space-y-3 text-sm text-gray-300">
               {summaryPoints.map((point) => (
-                <li key={point} className="flex items-start">
+                <li key={point} className="flex items-center">
                   <span className="mr-2 mt-0.5 h-2 w-2 flex-shrink-0 rounded-full bg-blue-500" />
                   <span>{point}</span>
                 </li>

@@ -135,8 +135,8 @@ export default function WorkExperience({ delay = 0 }) {
                       </p>
                       <ul className="mt-2 space-y-1 text-sm text-gray-300">
                         {job.impact.map((item, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <span className="mr-2 mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-green-500" />
+                          <li key={idx} className="flex items-center">
+                            <span className="mr-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-green-500" />
                             <span>{item}</span>
                           </li>
                         ))}

@@ -21,7 +21,7 @@ const personalProjects = [
   {
     name: "DuckPools",
     role: "Lead Frontend Developer",
-    image: "/assets/images/duckpools.png",
+    image: "/assets/images/ducklogo.svg",
     startDate: new Date("2022-02-01"),
     endDate: undefined,
     description: "Decentralized lending and borrowing protocol for crypto assets",
@@ -97,7 +97,7 @@ export default function PersonalProjects({ delay = 0 }) {
                 }}
               >
                 <div className="flex flex-col sm:flex-row sm:space-x-4">
-                  <div className="w-full sm:w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden mb-3 sm:mb-0">
+                  <div className="w-full sm:w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden mb-3 sm:mb-0 p-1">
                     <img
                       src={project.image}
                       alt={`${project.name} logo`}

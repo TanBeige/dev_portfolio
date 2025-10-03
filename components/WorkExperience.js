@@ -11,7 +11,7 @@ const workExperience = [
     description:
       "Designing and shipping DeepVest's flagship investment intelligence platform, partnering with data science to translate AI outputs into trusted user workflows.",
     impact: [
-      "Cut load times by 70% through edge rendering, bundle splitting, and performance budgets.",
+      "Cut load times by 70% through optimizing API calls, bundle caching, and performance budgets.",
       "Doubled conversion rates by redesigning onboarding and pricing experiments.",
       "Implemented authentication, state orchestration, and AI response caching with observability hooks.",
     ],

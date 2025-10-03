@@ -13,7 +13,7 @@ const skillCategories = [
   },
   {
     category: "Tools & DevOps",
-    skills: ["Git", "AWS", "CI/CD", "GitHub Actions"],
+    skills: ["Git", "DigitalOcean" ,"AWS", "CI/CD", "GitHub Actions"],
     color: "purple"
   }
 ];

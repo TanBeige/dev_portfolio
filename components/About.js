@@ -56,7 +56,7 @@ export default function About() {
             <FaGithubSquare onClick={() => gotoMedia("github")} className="text-purple-400 w-12 h-12 flex-shrink-0 mr-4 hover:scale-110 hover:cursor-pointer transition-all hover:opacity-50" />
             {/* <AiFillTwitterSquare className="text-blue-400 w-12 h-12 flex-shrink-0 mr-4" /> */}
             <FaLinkedin onClick={() => gotoMedia("linkedin")} className="text-blue-500 w-12 h-12 flex-shrink-0 mr-4 hover:scale-110 hover:cursor-pointer transition-all hover:opacity-50" />
-            <FaMedium onClick={() => gotoMedia("medium")} className="text-grey-500 w-12 h-12 flex-shrink-0 mr-4 hover:scale-110 hover:cursor-pointer transition-all hover:opacity-50" />
+            {/* <FaMedium onClick={() => gotoMedia("medium")} className="text-grey-500 w-12 h-12 flex-shrink-0 mr-4 hover:scale-110 hover:cursor-pointer transition-all hover:opacity-50" /> */}
           </div>
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">

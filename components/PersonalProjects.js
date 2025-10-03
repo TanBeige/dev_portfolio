@@ -8,28 +8,36 @@ const personalProjects = [
     image: "/assets/images/notesbot.png",
     startDate: new Date("2024-10-02"),
     endDate: undefined,
-    description: "AI-powered Discord bot for voice chat transcription and meeting summaries",
+    description:
+      "AI-powered Discord assistant that records, transcribes, and summarizes voice chats for communities and teams.",
     impact: [
-      "Serving 200+ active users across 300+ Discord servers",
-      "Processed 1000+ voice calls with AI-generated summaries and transcripts",
-      "Supports 100+ languages with automatic detection",
-      "Built complete SaaS platform with subscription system"
+      "Serving 200+ active users across 300+ Discord servers with automated summaries.",
+      "Processed 1,000+ voice calls with multi-language support and actionable notes.",
+      "Built subscription billing, onboarding, and analytics from the ground up.",
     ],
-    techStack: ["Node.js", "C++", "MongoDB", "DigitalOcean", "Discord API", "AI/ML"],
+    techStack: [
+      "Node.js",
+      "C++",
+      "MongoDB",
+      "DigitalOcean",
+      "Discord API",
+      "AI/ML",
+    ],
     link: "https://www.notesbot.io/",
     liveDemo: "https://www.notesbot.io/",
   },
   {
     name: "Collectibles AI",
-    role: "Co-Founder and Lead Developer",
+    role: "Co-Founder & Lead Developer",
     image: "/assets/images/collectibleslogowhite.png",
     startDate: new Date("2024-01-02"),
     endDate: undefined,
-    description: "AI-powered platform for collectibles identification, authentication, and pricing",
+    description:
+      "Computer vision platform that authenticates and prices collectibles using AI-driven market data.",
     impact: [
-      "Built intelligent image recognition system for collectibles",
-      "Automated pricing using market data and machine learning",
-      "Serving collectors and dealers with instant valuations"
+      "Built intelligent image recognition workflows for collectible identification.",
+      "Automated pricing recommendations using live marketplace data.",
+      "Delivered responsive web experience for appraisers and dealers.",
     ],
     techStack: ["React", "Next.js", "TypeScript", "AI/ML", "APIs"],
     link: "https://collectiblesai.io",
@@ -39,13 +47,14 @@ const personalProjects = [
     name: "DuckPools",
     role: "Lead Frontend Developer",
     image: "/assets/images/ducklogo.svg",
-    startDate: new Date("2022-02-01"),
+    startDate: new Date("2022-02-02"),
     endDate: undefined,
-    description: "Decentralized lending and borrowing protocol for crypto assets",
+    description:
+      "Decentralized lending protocol UI for Cardano DeFi participants.",
     impact: [
-      "Achieved Total Value Locked (TVL) of up to $500k",
-      "Handled thousands of transactions on the DeFi protocol",
-      "Built scalable interface for seamless lending and borrowing"
+      "Supported up to $500k TVL with real-time lending telemetry.",
+      "Enabled thousands of transactions with portfolio-level insights.",
+      "Built modular frontend architecture for rapid protocol experiments.",
     ],
     techStack: ["Next.js", "React", "TanStack Query", "Redux", "Web3"],
     link: "https://test.duckpools.io/",
@@ -53,32 +62,33 @@ const personalProjects = [
   },
   {
     name: "SkyHarbor",
-    role: "Founder and Lead Frontend",
+    role: "Founder & Lead Frontend",
     image: "/assets/images/SHLogoFinalTS.png",
-    startDate: new Date("2023-02-01"),
-    endDate: undefined,
-    description: "Decentralized NFT marketplace built for the Cardano blockchain ecosystem",
+    startDate: new Date("2023-02-02"),
+    endDate: new Date("2025-09-02"),
+    description:
+      "Decentralized NFT marketplace powering $400k+ in GMV for Cardano projects.",
     impact: [
-      "Built scalable marketplace architecture handling thousands of transactions",
-      "Implemented secure wallet integrations and smart contracts",
-      "Created intuitive UX for NFT discovery and trading"
+        "Shipped secure wallet integrations and contract interactions for high-volume drops.",
+        "Architected marketplace infrastructure handling thousands of transactions.",
+        "Grew to 20,000+ monthly active users via community-led growth.",
     ],
     techStack: ["React", "Next.js", "TypeScript", "Blockchain", "Web3"],
     link: "https://skyharbor.io",
     github: "https://github.com/skyharbor-market/frontend-skyharbor-ts",
-
   },
   {
     name: "Skedge",
-    role: "Co-Founder and CTO",
+    role: "Co-Founder & CTO",
     image: "/assets/images/skedgelogo.png",
-    startDate: new Date("2019-07-01"),
+    startDate: new Date("2019-07-02"),
     endDate: new Date("2020-10-02"),
-    description: "Cross-platform mobile app for discovering local events and exclusive deals",
+    description:
+      "Cross-platform mobile app for discovering local events and exclusive restaurant deals.",
     impact: [
-      "Launched on iOS and Android app stores",
-      "Built real-time event aggregation and recommendation engine",
-      "Developed responsive web application for broader reach"
+      "Launched on iOS and Android with native-like performance.",
+      "Rolled out real-time event aggregation and recommendation engine.",
+      "Acquired 2,000 monthly active users in the first launch market.",
     ],
     techStack: ["React Native", "React", "Node.js", "Firebase", "APIs"],
     link: "https://github.com/TanBeige/skedge-deals",
@@ -86,147 +96,128 @@ const personalProjects = [
   },
 ];
 
+const formatRange = (startDate, endDate) => {
+  const start = moment(startDate).format("MMM YYYY");
+  const end = endDate ? moment(endDate).format("MMM YYYY") : "Present";
+  return `${start} – ${end}`;
+};
+
 export default function PersonalProjects({ delay = 0 }) {
   return (
     <section id="personal-projects" className="mb-12">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: delay }}
+        transition={{ duration: 0.3, delay }}
+        className="mb-6"
       >
-        <h2 className="mb-4 text-2xl text-gray-200 font-bold">
-          Personal Projects
-        </h2>
+        <h2 className="text-3xl font-bold text-white">Founder-Led Product Builds</h2>
+        <p className="mt-2 text-sm text-gray-400">
+          Case studies from SaaS, AI, and Web3 products where I owned product strategy, frontend architecture, and go-to-market execution.
+        </p>
       </motion.div>
       <div className="flex flex-col space-y-6">
         {personalProjects
           .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
-          .map((project, index) => {
-            return (
-              <motion.div
-                key={`${project.name}-project`}
-                className="project-card group hover:bg-white/5 rounded-lg p-4 transition-all duration-300 border border-transparent hover:border-gray-700"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: delay + 0.1 + index * 0.1,
-                }}
-              >
-                <div className="flex flex-col sm:flex-row sm:space-x-4">
-                  <div className="w-full sm:w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden mb-3 sm:mb-0 p-1">
+          .map((project, index) => (
+            <motion.article
+              key={`${project.name}-project`}
+              className="group rounded-2xl border border-white/5 bg-white/5 p-5 transition-all duration-300 hover:border-blue-500/40 hover:bg-white/10"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: delay + 0.15 + index * 0.12 }}
+            >
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="w-full sm:w-28">
+                  <div className="h-24 w-full overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 p-2">
                     <img
                       src={project.image}
                       alt={`${project.name} logo`}
-                      className="object-cover h-full w-full group-hover:scale-105 transition-transform duration-300"
+                      className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex-grow">
-                    {/* Project Name and Role */}
-                    <div className="flex flex-col space-y-1 mb-2">
-                      <h3 className="text-gray-100 text-lg font-semibold group-hover:text-white transition-colors">
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+                    <div>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-white">
                         {project.name}
                       </h3>
-                      <p className="text-gray-400 text-sm">{project.role}</p>
-
-                      {/* Dates */}
-                      <div className="flex flex-row space-x-1 text-xs text-gray-500">
-                        <p>{moment(project.startDate).format("MMM YYYY")}</p>
-                        <p> - </p>
-                        <p>
-                          {project.endDate
-                            ? moment(project.endDate).format("MMM YYYY")
-                            : "Present"}
-                        </p>
-                      </div>
+                      <p className="text-sm text-gray-400">{project.role}</p>
                     </div>
-
-                    {/* Description */}
-                    <p className="text-sm text-gray-300 mb-3">
-                      {project.description}
+                    <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                      {formatRange(project.startDate, project.endDate)}
                     </p>
+                  </div>
 
-                    {/* Impact Metrics */}
-                    <div className="mb-3">
-                      <ul className="space-y-1">
-                        {project.impact.map((item, idx) => (
-                          <li
-                            key={idx}
-                            className="text-sm text-gray-400 flex items-start"
-                          >
-                            <span className="text-blue-500 mr-2">•</span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <p className="mt-3 text-sm text-gray-300">{project.description}</p>
 
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-3">
+                  <div className="mt-4">
+                    <p className="text-[11px] uppercase tracking-wide text-gray-500">
+                      Key outcomes
+                    </p>
+                    <ul className="mt-2 space-y-1 text-sm text-gray-300">
+                      {project.impact.map((item, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <span className="mr-2 mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <p className="text-[11px] uppercase tracking-wide text-gray-500">
+                      Stack
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-2">
                       {project.techStack.map((tech, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 text-xs bg-gray-800/50 text-gray-300 rounded border border-gray-700"
+                          className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-gray-200"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
+                  </div>
 
-                    {/* CTAs */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.liveDemo && (
-                        <a
-                          href={project.liveDemo}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded transition-colors"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          View Live
-                          <svg
-                            className="w-3 h-3 ml-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                            />
-                          </svg>
-                        </a>
-                      )}
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-gray-300 bg-gray-800 hover:bg-gray-700 rounded border border-gray-700 hover:border-gray-600 transition-colors"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          View Code
-                          <svg
-                            className="w-3 h-3 ml-1"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </a>
-                      )}
-                    </div>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    {project.liveDemo && (
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-500"
+                      >
+                        View live
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center rounded-md border border-white/10 px-3 py-1.5 text-xs font-semibold text-gray-200 hover:border-blue-500/50 hover:text-white"
+                      >
+                        View code
+                      </a>
+                    )}
+                    {project.link && !project.liveDemo && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center rounded-md border border-white/10 px-3 py-1.5 text-xs font-semibold text-gray-200 hover:border-blue-500/50 hover:text-white"
+                      >
+                        Explore project
+                      </a>
+                    )}
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.article>
+          ))}
       </div>
     </section>
   );

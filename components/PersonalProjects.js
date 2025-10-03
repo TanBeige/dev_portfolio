@@ -3,6 +3,23 @@ import moment from "moment";
 
 const personalProjects = [
   {
+    name: "NotesBot",
+    role: "Founder & Full-Stack Developer",
+    image: "/assets/images/notesbot.png",
+    startDate: new Date("2024-10-02"),
+    endDate: undefined,
+    description: "AI-powered Discord bot for voice chat transcription and meeting summaries",
+    impact: [
+      "Serving 200+ active users across 300+ Discord servers",
+      "Processed 1000+ voice calls with AI-generated summaries and transcripts",
+      "Supports 100+ languages with automatic detection",
+      "Built complete SaaS platform with subscription system"
+    ],
+    techStack: ["Node.js", "C++", "MongoDB", "DigitalOcean", "Discord API", "AI/ML"],
+    link: "https://www.notesbot.io/",
+    liveDemo: "https://www.notesbot.io/",
+  },
+  {
     name: "Collectibles AI",
     role: "Co-Founder and Lead Developer",
     image: "/assets/images/collectibleslogowhite.png",
